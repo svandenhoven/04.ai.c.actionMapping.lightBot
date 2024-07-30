@@ -79,6 +79,8 @@ planLocation = "../src/prompts/sequence/"
 startMsg = "Return a JSON object that uses the SAY command to say what you're thinking."
 sequenceString = "Use the actions above to create a plan in the following JSON format: "
 samplePlan = {"type":"plan","commands":[{"type":"DO","action":"<name>","parameters":{"<name>":"<value>"}}, {"type":"SAY","response":"<response>"}]}
+# set to True if you want to print the created and expected plans when they don't match
+show_failure = False
 
 client = AzureOpenAI(
     azure_endpoint=endpoint,
@@ -155,7 +157,7 @@ for test in test_plan:
 
     # Determine resemblance to expected plan
     similarity_score = validate_plan(created_plan, expected_plan)
-    if (similarity_score < 1):
+    if (similarity_score < 1 and show_failure):
         # Print the created plan and the expected plan
         print ("Created plan: ")
         print (created_plan)
