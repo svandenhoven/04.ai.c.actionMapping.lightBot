@@ -57,3 +57,52 @@ The simplest way to run this sample in Teams is to use Teams Toolkit for Visual 
 10. In the browser that launches, select the **Add** button to install the app to Teams.
 
 > If you do not have permission to upload custom apps (sideloading), Teams Toolkit will recommend creating and using a Microsoft 365 Developer Program account - a free program to get your own dev environment sandbox that includes Teams.
+
+## Evaluate the application
+This solution contains an evaluation script to evaluate the action planning. In the folder eval the script eval.py can be used to create and evaluation
+
+```text
+Processing input:  Turn on the lights.
+Processing input:  Turn off the lights.
+Processing input:  Check the light status.
+Processing input:  Turn on the lights, then pause for 20 seconds, then turn off the lights.
+Processing input:  Pause for 15 seconds, then turn on the lights.
+Processing input:  Check the light status, pause for 10 seconds, then check the light status again.
+Processing input:  Pause for 25 seconds.
+Processing input:  Turn on the lights, pause for 30 seconds, then check the light status.
+Processing input:  Turn off the lights, pause for 5 seconds, then check the light status.
+Processing input:  Sets the brightness of the lights to 50%.
+Processing input:  Dim the lights to 25% brightness.
++----------------------------------------------------------------------------------+--------------------+----------------------+----------------+
+| Input                                                                            |   Similarity Score |   Elapsed Time (sec) |   Total Tokens |
++==================================================================================+====================+======================+================+
+| Turn on the lights.                                                              |                0.5 |                  1.7 |            401 |
++----------------------------------------------------------------------------------+--------------------+----------------------+----------------+
+| Turn off the lights.                                                             |                1   |                  1.7 |            417 |
++----------------------------------------------------------------------------------+--------------------+----------------------+----------------+
+| Check the light status.                                                          |                1   |                  2.4 |            420 |
++----------------------------------------------------------------------------------+--------------------+----------------------+----------------+
+| Turn on the lights, then pause for 20 seconds, then turn off the lights.         |                1   |                  8.8 |            515 |
++----------------------------------------------------------------------------------+--------------------+----------------------+----------------+
+| Pause for 15 seconds, then turn on the lights.                                   |                1   |                  2.1 |            468 |
++----------------------------------------------------------------------------------+--------------------+----------------------+----------------+
+| Check the light status, pause for 10 seconds, then check the light status again. |                0.5 |                  4.2 |            456 |
++----------------------------------------------------------------------------------+--------------------+----------------------+----------------+
+| Pause for 25 seconds.                                                            |                1   |                  1.7 |            438 |
++----------------------------------------------------------------------------------+--------------------+----------------------+----------------+
+| Turn on the lights, pause for 30 seconds, then check the light status.           |                1   |                  3.4 |            531 |
++----------------------------------------------------------------------------------+--------------------+----------------------+----------------+
+| Turn off the lights, pause for 5 seconds, then check the light status.           |                1   |                  2.8 |            474 |
++----------------------------------------------------------------------------------+--------------------+----------------------+----------------+
+| Sets the brightness of the lights to 50%.                                        |                1   |                  3.1 |            442 |
++----------------------------------------------------------------------------------+--------------------+----------------------+----------------+
+| Dim the lights to 25% brightness.                                                |                1   |                  3.5 |            440 |
++----------------------------------------------------------------------------------+--------------------+----------------------+----------------+
+Data written to testruns_output\20240730-110558.json
+```
+
+In ./eval/test_plan.json a test plan is given. This contains an input and the expected plan. In the file ./eval/prompt_inputs a value for the variables in the skprompt.txt are given. These will be substitute during the run of eval.py.
+
+The eval.py uses the environment variables set in .env (including extra variable for DEPLOYMENT_NAME).
+
+The output of the run is written into a unique file in the folder ./eval/testruns_output and these can be used for further evaluation.
