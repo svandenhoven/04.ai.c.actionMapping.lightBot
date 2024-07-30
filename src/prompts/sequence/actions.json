@@ -1,0 +1,46 @@
+[
+    {
+        "name": "LightsOn",
+        "description": "Turns on the lights"
+    },
+    {
+        "name": "LightsOff",
+        "description": "Turns off the lights"
+    },
+    {
+        "name": "Pause",
+        "description": "Delays for a period of time",
+        "parameters": {
+            "type": "object",
+            "properties": {
+                "time": {
+                    "type": "number",
+                    "description": "The amount of time to delay in milliseconds"
+                }
+            },
+            "required": [
+                "time"
+            ]
+        }
+    },
+    {
+        "name": "LightStatus",
+        "description": "Gets the lights status"
+    },
+    {
+        "name": "SetBrightness",
+        "description": "Sets the brightness of the lights",
+        "parameters": {
+            "type": "object",
+            "properties": {
+                "brightness": {
+                    "type": "number",
+                    "description": "The brightness level to set the lights to"
+                }
+            },
+            "required": [
+                "brightness"
+            ]
+        }
+    }
+]

@@ -1,0 +1,12 @@
+# Auto generated during deployment
+requirements.txt
+
+.env
+eval/testruns_output
+
+# Teams Toolkit
+env/.env.*.user
+env/.env.local
+env/.env.*.dev
+appPackage/build
+.deployment

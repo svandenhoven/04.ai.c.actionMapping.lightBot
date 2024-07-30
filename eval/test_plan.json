@@ -1,0 +1,139 @@
+[
+  {
+    "input": "Turn on the lights.",
+    "expected_plan": {
+      "type": "plan",
+      "commands": [
+        { "type": "DO", "action": "LightsOn" },
+        { "type": "SAY", "response": "Turning on the lights." }
+      ]
+    }
+  },
+  {
+    "input": "Turn off the lights.",
+    "expected_plan": {
+      "type": "plan",
+      "commands": [
+        { "type": "DO", "action": "LightsOff" },
+        { "type": "SAY", "response": "Turning off the lights." }
+      ]
+    }
+  },
+  {
+    "input": "Check the light status.",
+    "expected_plan": {
+      "type": "plan",
+      "commands": [
+        { "type": "DO", "action": "LightStatus" },
+        { "type": "SAY", "response": "Checking the light status." }
+      ]
+    }
+  },
+  {
+    "input": "Turn on the lights, then pause for 20 seconds, then turn off the lights.",
+    "expected_plan": {
+      "type": "plan",
+      "commands": [
+        { "type": "DO", "action": "LightsOn" },
+        { "type": "DO", "action": "Pause", "parameters": { "time": 20000 } },
+        { "type": "DO", "action": "LightsOff" },
+        { "type": "SAY", "response": "Turning on the lights, pausing for 20 seconds, then turning off the lights." }
+      ]
+    }
+  },
+  {
+    "input": "Pause for 15 seconds, then turn on the lights.",
+    "expected_plan": {
+      "type": "plan",
+      "commands": [
+        { "type": "DO", "action": "Pause", "parameters": { "time": 15000 } },
+        { "type": "DO", "action": "LightsOn" },
+        { "type": "SAY", "response": "Pausing for 15 seconds, then turning on the lights." }
+      ]
+    }
+  },
+  {
+    "input": "Check the light status, pause for 10 seconds, then check the light status again.",
+    "expected_plan": {
+      "type": "plan",
+      "commands": [
+        { "type": "DO", "action": "LightStatus" },
+        { "type": "DO", "action": "Pause", "parameters": { "time": 10000 } },
+        { "type": "DO", "action": "LightStatus" },
+        { "type": "SAY", "response": "Checking the light status, pausing for 10 seconds, then checking the light status again." }
+      ]
+    }
+  },
+  {
+    "input": "Pause for 25 seconds.",
+    "expected_plan": {
+      "type": "plan",
+      "commands": [
+        { "type": "DO", "action": "Pause", "parameters": { "time": 25000 } },
+        { "type": "SAY", "response": "Pausing for 25 seconds." }
+      ]
+    }
+  },
+  {
+    "input": "Turn on the lights, pause for 30 seconds, then check the light status.",
+    "expected_plan": {
+      "type": "plan",
+      "commands": [
+        { "type": "DO", "action": "LightsOn" },
+        { "type": "DO", "action": "Pause", "parameters": { "time": 30000 } },
+        { "type": "DO", "action": "LightStatus" },
+        { "type": "SAY", "response": "Turning on the lights, pausing for 30 seconds, then checking the light status." }
+      ]
+    }
+  },
+  {
+    "input": "Turn off the lights, pause for 5 seconds, then check the light status.",
+    "expected_plan": {
+      "type": "plan",
+      "commands": [
+        { "type": "DO", "action": "LightsOff" },
+        { "type": "DO", "action": "Pause", "parameters": { "time": 5000 } },
+        { "type": "DO", "action": "LightStatus" },
+        { "type": "SAY", "response": "Turning off the lights, pausing for 5 seconds, then checking the light status." }
+      ]
+    }
+  },
+  {
+    "input": "Sets the brightness of the lights to 50%.",
+    "expected_plan": {
+      "type": "plan",
+      "commands": [
+        {
+          "type": "DO",
+          "action": "SetBrightness",
+          "parameters": {
+            "brightness": 50
+          }
+        },
+        {
+          "type": "SAY",
+          "response": "Setting the brightness of the lights to 50%."
+        }
+      ]
+    }
+  },
+  {
+    "input": "Dim the lights to 25% brightness.",
+    "expected_plan": {
+      "type": "plan",
+      "commands": [
+        {
+          "type": "DO",
+          "action": "SetBrightness",
+          "parameters": {
+            "brightness": 25
+          }
+        },
+        {
+          "type": "SAY",
+          "response": "Dimming the lights to 25% brightness."
+        }
+      ]
+    }
+  }
+]
